@@ -10,6 +10,10 @@ import CustomImage from '../../components/Image/CustomImage';
 import ClickArea from '../../components/Image/ClickArea';
 import { useState } from 'react';
 import CustomButton from '../../components/Button/CustomButton';
+import CustomHeader from '../../components/Text/CustomHeader';
+import Card from '../../components/Container/Card';
+import ImageContainer from '../../components/Container/ImageContainer';
+import CustomContainer from '../../components/Container/CustomContainer';
 
 
 function FingerArea() {
@@ -44,10 +48,10 @@ function FingerArea() {
     </>
 
     const renderPage = () => {
-        return <div className="flex flex-col items-center w-screen">
-            <div className="bg-white shadow-md rounded-lg p-6 max-w-xl w-screen mx-4 my-6 border-2">
-                <h1 className="text-xl font-semibold mb-4 text-center">จุดไหนที่คุณปวดนิ้วมากที่สุด ?</h1>
-                <div className="relative w-full h-auto" style={{ aspectRatio: '1 / 1.2' }}>
+        return <CustomContainer>
+            <Card>
+                <CustomHeader title='จุดไหนที่คุณปวดนิ้วมากที่สุด ?' />
+                <ImageContainer>
                     <CustomImage src={defaultFinger} visible={true} />
                     <CustomImage src={dipHighlight} visible={selectedArea === 'DIP'} />
                     <CustomImage src={dipActive} visible={selectedArea === 'DIP'} />
@@ -60,10 +64,10 @@ function FingerArea() {
                     {dipClickAreas}
                     {pipClickAreas}
                     <ClickArea top='88%' left='14%' width="70%" height="9%" onClick={() => handleClick('OTHERS')} />
-                </div>
-            </div>
+                </ImageContainer>
+            </Card>
             <CustomButton title='ต่อไป' disabled={selectedArea === ''} />
-        </div>
+        </CustomContainer>
     }
 
     return renderPage();
