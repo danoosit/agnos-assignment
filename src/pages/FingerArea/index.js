@@ -7,10 +7,15 @@ import pipHighlight from '../../assets/images/pip-highlight.png';
 import pipActive from '../../assets/images/pip-active.png';
 import CustomImage from '../../components/Image/CustomImage';
 import ClickArea from '../../components/Image/ClickArea';
+import { useState } from 'react';
 
 function FingerArea() {
+
+    const [selectedArea, setSelectedArea] = useState('');
+
     const handleClick = (area) => {
-        console.log(`Clicked on ${area}`);
+        // console.log(`Clicked on ${area}`);
+        setSelectedArea(area);
         // Add more logic here based on the clicked area
     };
 
@@ -43,15 +48,16 @@ function FingerArea() {
                 <h1 className="text-xl font-semibold mb-4 text-center">จุดไหนที่คุณปวดนิ้วมากที่สุด ?</h1>
                 <div className="relative w-full h-auto" style={{ aspectRatio: '1 / 1.2' }}>
                     <CustomImage src={defaultFinger} visible={true} />
-                    <CustomImage src={dipHighlight} visible={true} />
-                    <CustomImage src={dipActive} visible={true} />
-                    <CustomImage src={mcpHighlight} visible={true} />
-                    <CustomImage src={mcpActive} visible={true} />
-                    <CustomImage src={pipHighlight} visible={true} />
-                    <CustomImage src={pipActive} visible={true} />
+                    <CustomImage src={dipHighlight} visible={selectedArea === 'DIP' || selectedArea === 'OTHERS'} />
+                    <CustomImage src={dipActive} visible={selectedArea === 'DIP'} />
+                    <CustomImage src={mcpHighlight} visible={selectedArea === 'MCP' || selectedArea === 'OTHERS'} />
+                    <CustomImage src={mcpActive} visible={selectedArea === 'MCP'} />
+                    <CustomImage src={pipHighlight} visible={selectedArea === 'PIP' || selectedArea === 'OTHERS'} />
+                    <CustomImage src={pipActive} visible={selectedArea === 'PIP'} />
                     {mcpClickAreas}
                     {dipClickAreas}
                     {pipClickAreas}
+                    <ClickArea top='88%' left='14%' width="70%" height="9%" onClick={() => handleClick('OTHERS')} />
                 </div>
             </div>
         </div>
