@@ -5,12 +5,9 @@ import mcpHighlight from '../../assets/images/mcp-highlight.png';
 import mcpActive from '../../assets/images/mcp-active.png';
 import pipHighlight from '../../assets/images/pip-highlight.png';
 import pipActive from '../../assets/images/pip-active.png';
-import othersHighlight from '../../assets/images/others-highlight.png';
 import CustomImage from '../../components/Image/CustomImage';
 import ClickArea from '../../components/Image/ClickArea';
 import { useState } from 'react';
-import CustomButton from '../../components/Button/CustomButton';
-
 
 function FingerArea() {
 
@@ -44,25 +41,26 @@ function FingerArea() {
     </>
 
     const renderPage = () => {
-        return <div className="flex flex-col items-center w-screen">
-            <div className="bg-white shadow-md rounded-lg p-6 max-w-xl w-screen mx-4 my-6 border-2">
+        return <div className="flex flex-col items-center w-full">
+            <div className="bg-white shadow-md rounded-lg p-6 max-w-xl w-full mx-4 my-6 border-2">
                 <h1 className="text-xl font-semibold mb-4 text-center">จุดไหนที่คุณปวดนิ้วมากที่สุด ?</h1>
                 <div className="relative w-full h-auto" style={{ aspectRatio: '1 / 1.2' }}>
                     <CustomImage src={defaultFinger} visible={true} />
-                    <CustomImage src={dipHighlight} visible={selectedArea === 'DIP'} />
+                    <CustomImage src={dipHighlight} visible={selectedArea === 'DIP' || selectedArea === 'OTHERS'} />
                     <CustomImage src={dipActive} visible={selectedArea === 'DIP'} />
-                    <CustomImage src={mcpHighlight} visible={selectedArea === 'MCP'} />
+                    <CustomImage src={mcpHighlight} visible={selectedArea === 'MCP' || selectedArea === 'OTHERS'} />
                     <CustomImage src={mcpActive} visible={selectedArea === 'MCP'} />
-                    <CustomImage src={pipHighlight} visible={selectedArea === 'PIP'} />
+                    <CustomImage src={pipHighlight} visible={selectedArea === 'PIP' || selectedArea === 'OTHERS'} />
                     <CustomImage src={pipActive} visible={selectedArea === 'PIP'} />
-                    <CustomImage src={othersHighlight} visible={selectedArea === 'OTHERS'} />
                     {mcpClickAreas}
                     {dipClickAreas}
                     {pipClickAreas}
                     <ClickArea top='88%' left='14%' width="70%" height="9%" onClick={() => handleClick('OTHERS')} />
                 </div>
             </div>
-            <CustomButton title='ต่อไป' disabled={selectedArea === ''} />
+            <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4">
+                Click Me
+            </button>
         </div>
     }
 
