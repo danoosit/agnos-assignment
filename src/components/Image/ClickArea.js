@@ -1,12 +1,17 @@
 
 
 function ClickArea(props) {
-    const { onClick, top, left, right, width = '10%', height = '5%' } = props
-    console.log(left)
+    const { onClick, top, left, width = '10%', height = '5%' } = props
     return <div
-        className={`absolute top-[${top}] left-[${left}] w-[${width}] h-[${height}] bg-transparent z-50`}
+        className={`absolute bg-transparent z-50`}
         onClick={onClick}
-        style={{ border: '1px solid green' }}
+        style={{
+            top: top,
+            left: left,
+            width: width,
+            height: height,
+            border: '1px solid green' // For debugging,
+        }}
     />;
 }
 

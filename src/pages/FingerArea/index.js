@@ -22,8 +22,23 @@ function FingerArea() {
         <ClickArea top='30%' left='67%' onClick={() => handleClick('MCP')} />
     </>
 
+    const dipClickAreas = <>
+        <ClickArea top='13%' left='20%' width="8%" height="4%" onClick={() => handleClick('DIP')} />
+        <ClickArea top='7%' left='32%' width="8%" height="4%" onClick={() => handleClick('DIP')} />
+        <ClickArea top='4%' left='42%' width="8%" height="4%" onClick={() => handleClick('DIP')} />
+        <ClickArea top='6%' left='55%' width="8%" height="4%" onClick={() => handleClick('DIP')} />
+    </>
+
+    const pipClickAreas = <>
+        <ClickArea top='18%' left='23%' width="8%" height="4%" onClick={() => handleClick('PIP')} />
+        <ClickArea top='13%' left='33%' width="8%" height="4%" onClick={() => handleClick('PIP')} />
+        <ClickArea top='11%' left='43%' width="10%" height="4%" onClick={() => handleClick('PIP')} />
+        <ClickArea top='12%' left='54%' width="10%" height="4%" onClick={() => handleClick('PIP')} />
+        <ClickArea top='23%' left='74%' onClick={() => handleClick('PIP')} />
+    </>
+
     const renderPage = () => {
-        return <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-xl mx-auto h-auto mt-5">
+        return <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-xl mx-auto">
             <div className="relative w-full h-auto" style={{ aspectRatio: '1 / 2' }}>
                 <CustomImage src={defaultFinger} visible={true} />
                 <CustomImage src={dipHighlight} visible={true} />
@@ -33,6 +48,8 @@ function FingerArea() {
                 <CustomImage src={pipHighlight} visible={true} />
                 <CustomImage src={pipActive} visible={true} />
                 {mcpClickAreas}
+                {dipClickAreas}
+                {pipClickAreas}
             </div>
         </div>
     }
