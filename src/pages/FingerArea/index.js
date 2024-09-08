@@ -52,7 +52,7 @@ function FingerArea() {
             <Card>
                 <CustomHeader title='จุดไหนที่คุณปวดนิ้วมากที่สุด ?' />
                 <ImageContainer>
-                    <CustomImage src={defaultFinger} visible={true} />
+                    <CustomImage src={defaultFinger} />
                     <CustomImage src={dipHighlight} visible={selectedArea === 'DIP'} />
                     <CustomImage src={dipActive} visible={selectedArea === 'DIP'} />
                     <CustomImage src={mcpHighlight} visible={selectedArea === 'MCP'} />
@@ -63,7 +63,7 @@ function FingerArea() {
                     {mcpClickAreas}
                     {dipClickAreas}
                     {pipClickAreas}
-                    <ClickArea top='88%' left='14%' width="70%" height="9%" onClick={() => handleClick('OTHERS')} />
+                    <ClickArea top='88%' left='14%' width="70%" height="9%" radius='0' onClick={() => handleClick('OTHERS')} />
                 </ImageContainer>
             </Card>
             <CustomButton title='ต่อไป' disabled={selectedArea === ''} />

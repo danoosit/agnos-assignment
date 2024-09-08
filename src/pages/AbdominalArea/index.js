@@ -1,15 +1,30 @@
-import defaultFinger from '../../assets/images/default-finger.png';
-import dipHighlight from '../../assets/images/dip-highlight.png';
-import dipActive from '../../assets/images/dip-active.png';
-import mcpHighlight from '../../assets/images/mcp-highlight.png';
-import mcpActive from '../../assets/images/mcp-active.png';
-import pipHighlight from '../../assets/images/pip-highlight.png';
-import pipActive from '../../assets/images/pip-active.png';
+import defaultAbs from '../../assets/images/default-abs.png';
+import epigastriumActive from '../../assets/images/epigastrium-active.png';
+import epigastriumHighlight from '../../assets/images/epigastrium-highlight.png';
+import llqActive from '../../assets/images/llq-active.png';
+import llqHighlight from '../../assets/images/llq-highlight.png';
+import luqActive from '../../assets/images/luq-active.png';
+import luqHighlight from '../../assets/images/luq-highlight.png';
+import rlqActive from '../../assets/images/rlq-active.png';
+import rlqHighlight from '../../assets/images/rlq-highlight.png';
+import ruqActive from '../../assets/images/ruq-active.png';
+import ruqHighlight from '../../assets/images/ruq-highlight.png';
+import suprapubicActive from '../../assets/images/suprapubic-active.png';
+import suprapubicHighlight from '../../assets/images/suprapubic-highlight.png';
+import umbilicusActive from '../../assets/images/umbilicus-active.png';
+import umbilicusHighlight from '../../assets/images/umbilicus-highlight.png';
+import allHighlight from '../../assets/images/all-over-highlight.png';
 import CustomImage from '../../components/Image/CustomImage';
 import ClickArea from '../../components/Image/ClickArea';
 import { useState } from 'react';
+import CustomButton from '../../components/Button/CustomButton';
+import CustomHeader from '../../components/Text/CustomHeader';
+import Card from '../../components/Container/Card';
+import ImageContainer from '../../components/Container/ImageContainer';
+import CustomContainer from '../../components/Container/CustomContainer';
 
-function FingerArea() {
+
+function AbdominalArea() {
 
     const [selectedArea, setSelectedArea] = useState('');
 
@@ -17,54 +32,46 @@ function FingerArea() {
         setSelectedArea(area);
     };
 
-    const mcpClickAreas = <>
-        <ClickArea top='38%' left='27%' onClick={() => handleClick('MCP')} />
-        <ClickArea top='35%' left='35%' onClick={() => handleClick('MCP')} />
-        <ClickArea top='33%' left='44%' onClick={() => handleClick('MCP')} />
-        <ClickArea top='33%' left='53%' onClick={() => handleClick('MCP')} />
-        <ClickArea top='50%' left='67%' onClick={() => handleClick('MCP')} />
-    </>
-
-    const dipClickAreas = <>
-        <ClickArea top='22%' left='20%' width="8%" height="6%" onClick={() => handleClick('DIP')} />
-        <ClickArea top='12%' left='32%' width="8%" height="6%" onClick={() => handleClick('DIP')} />
-        <ClickArea top='7%' left='42%' width="8%" height="6%" onClick={() => handleClick('DIP')} />
-        <ClickArea top='10%' left='55%' width="8%" height="6%" onClick={() => handleClick('DIP')} />
-    </>
-
-    const pipClickAreas = <>
-        <ClickArea top='30%' left='23%' width="8%" height="6%" onClick={() => handleClick('PIP')} />
-        <ClickArea top='22%' left='33%' width="8%" height="6%" onClick={() => handleClick('PIP')} />
-        <ClickArea top='19%' left='43%' width="9%" height="6%" onClick={() => handleClick('PIP')} />
-        <ClickArea top='20%' left='54%' width="10%" height="6%" onClick={() => handleClick('PIP')} />
-        <ClickArea top='38%' left='74%' onClick={() => handleClick('PIP')} />
+    const absClickAreas = <>
+        <ClickArea top='34%' left='42%' width='12%' height='11%' onClick={() => handleClick('epigastrium')} />
+        <ClickArea top='41%' left='53%' width='13%' height='11%' onClick={() => handleClick('luq')} />
+        <ClickArea top='52%' left='53%' width='13%' height='11%' onClick={() => handleClick('llq')} />
+        <ClickArea top='41%' left='31%' width='13%' height='11%' onClick={() => handleClick('ruq')} />
+        <ClickArea top='52%' left='31%' width='13%' height='11%' onClick={() => handleClick('rlq')} />
+        <ClickArea top='57%' left='43%' width='11%' height='11%' onClick={() => handleClick('suprapubic')} />
+        <ClickArea top='48%' left='43%' width='10%' height='8%' onClick={() => handleClick('umbilicus')} />
     </>
 
     const renderPage = () => {
-        return <div className="flex flex-col items-center w-full">
-            <div className="bg-white shadow-md rounded-lg p-6 max-w-xl w-full mx-4 my-6 border-2">
-                <h1 className="text-xl font-semibold mb-4 text-center">จุดไหนที่คุณปวดนิ้วมากที่สุด ?</h1>
-                <div className="relative w-full h-auto" style={{ aspectRatio: '1 / 1.2' }}>
-                    <CustomImage src={defaultFinger} visible={true} />
-                    <CustomImage src={dipHighlight} visible={selectedArea === 'DIP' || selectedArea === 'OTHERS'} />
-                    <CustomImage src={dipActive} visible={selectedArea === 'DIP'} />
-                    <CustomImage src={mcpHighlight} visible={selectedArea === 'MCP' || selectedArea === 'OTHERS'} />
-                    <CustomImage src={mcpActive} visible={selectedArea === 'MCP'} />
-                    <CustomImage src={pipHighlight} visible={selectedArea === 'PIP' || selectedArea === 'OTHERS'} />
-                    <CustomImage src={pipActive} visible={selectedArea === 'PIP'} />
-                    {mcpClickAreas}
-                    {dipClickAreas}
-                    {pipClickAreas}
-                    <ClickArea top='88%' left='14%' width="70%" height="9%" onClick={() => handleClick('OTHERS')} />
-                </div>
-            </div>
-            <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4">
-                Click Me
-            </button>
-        </div>
+        return <CustomContainer>
+            <Card>
+                <CustomHeader title='จุดไหนที่คุณปวดท้องมากที่สุด ?' />
+                <ImageContainer>
+                    <CustomImage src={defaultAbs} />
+                    <CustomImage src={epigastriumActive} visible={selectedArea === 'epigastrium'} />
+                    <CustomImage src={epigastriumHighlight} visible={selectedArea === 'epigastrium' || selectedArea === 'ALL'} />
+                    <CustomImage src={llqActive} visible={selectedArea === 'llq'} />
+                    <CustomImage src={llqHighlight} visible={selectedArea === 'llq' || selectedArea === 'ALL'} />
+                    <CustomImage src={luqActive} visible={selectedArea === 'luq'} />
+                    <CustomImage src={luqHighlight} visible={selectedArea === 'luq' || selectedArea === 'ALL'} />
+                    <CustomImage src={rlqActive} visible={selectedArea === 'rlq'} />
+                    <CustomImage src={rlqHighlight} visible={selectedArea === 'rlq' || selectedArea === 'ALL'} />
+                    <CustomImage src={ruqActive} visible={selectedArea === 'ruq'} />
+                    <CustomImage src={ruqHighlight} visible={selectedArea === 'ruq' || selectedArea === 'ALL'} />
+                    <CustomImage src={suprapubicActive} visible={selectedArea === 'suprapubic'} />
+                    <CustomImage src={suprapubicHighlight} visible={selectedArea === 'suprapubic' || selectedArea === 'ALL'} />
+                    <CustomImage src={umbilicusActive} visible={selectedArea === 'umbilicus'} />
+                    <CustomImage src={umbilicusHighlight} visible={selectedArea === 'umbilicus' || selectedArea === 'ALL'} />
+                    <CustomImage src={allHighlight} visible={selectedArea === 'ALL'} />
+                    {absClickAreas}
+                    <ClickArea top='85%' left='32%' width="32%" height="10%" radius='0' onClick={() => handleClick('ALL')} />
+                </ImageContainer>
+            </Card>
+            <CustomButton title='ต่อไป' disabled={selectedArea === ''} />
+        </CustomContainer>
     }
 
     return renderPage();
 }
 
-export default FingerArea;
+export default AbdominalArea;

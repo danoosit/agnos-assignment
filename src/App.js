@@ -8,6 +8,7 @@ import {
   Routes,
 } from "react-router-dom";
 import FingerArea from './pages/FingerArea';
+import AbdominalArea from './pages/AbdominalArea';
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
       <Routes>
         <Route path="/" element={LandingPage} />
         <Route path="/finger" element={<FingerArea />} />
+        <Route path="/abdominal" element={<AbdominalArea />} />
       </Routes>
     );
   }
