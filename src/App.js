@@ -2,13 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import {
   createBrowserRouter,
-  Link,
   Route,
   RouterProvider,
-  Routes,
+  Routes
 } from "react-router-dom";
 import FingerArea from './pages/FingerArea';
 import AbdominalArea from './pages/AbdominalArea';
+import HomePage from './pages/Home';
 
 function App() {
 
@@ -38,7 +38,7 @@ function App() {
   function Root() {
     return (
       <Routes>
-        <Route path="/" element={LandingPage} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/finger" element={<FingerArea />} />
         <Route path="/abdominal" element={<AbdominalArea />} />
       </Routes>

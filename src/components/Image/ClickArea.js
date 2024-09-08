@@ -10,7 +10,6 @@ function ClickArea(props) {
             left: left,
             width: width,
             height: height,
-            border: '1px solid green', // For debugging,
             borderRadius: radius
         }}
     />;
